@@ -1,8 +1,8 @@
 <?php
 namespace Ashraf\BehatGoogleAnalyticsExtension\Behat\Context\Initializer;
 
-use Behat\Behat\Context\ContextInterface;
-use Behat\Behat\Context\Initializer\InitializerInterface;
+use Behat\Behat\Context\Context;
+use Behat\Behat\Context\Initializer\ContextInitializer;
 use Ashraf\BehatGoogleAnalyticsExtension\Behat\Context\GoogleAnalyticsAwareInterface;
 
 class GoogleAnalyticsAwareInitializer implements InitializerInterface {
@@ -24,20 +24,23 @@ class GoogleAnalyticsAwareInitializer implements InitializerInterface {
 	/**
 	 * Checks if initializer supports provided context.
 	 *
-	 * @param ContextInterface $context
+	 * @param Context $context
 	 *
 	 * @return Boolean
 	 */
-	public function supports(ContextInterface $context) {
-		return $context instanceof GoogleAnalyticsAwareInterface;
-	}
+//	public function supports(Context $context) {
+//		return $context instanceof GoogleAnalyticsAwareInterface;
+//	}
 
 	/**
 	 * Initializes provided context.
 	 *
-	 * @param ContextInterface $context
+	 * @param Context $context
 	 */
-	public function initialize(ContextInterface $context) {
+	public function initializeContext(Context $context) {
+		if (!$context instanceof GoogleAnalyticsAwareInterface) {
+			return;
+		}
 		$client = new \Google_Client();
 		$client->setApplicationName('BehatGoogleAnalyticsExtension');
 		$client->setScopes(array('https://www.googleapis.com/auth/analytics.readonly'));

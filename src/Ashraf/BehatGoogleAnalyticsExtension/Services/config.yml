@@ -1,0 +1,11 @@
+parameters:
+	behat.googleanalytics.parameters: {}
+	behat.googleanalytics.context.initializer.class: Ashraf\BehatGoogleAnalyticsExtension\Behat\Context\Initializer\GoogleAnalyticsAwareInitializer
+
+services:
+	behat.googleanlaytics.context.initializer:
+		class: %behat.googleanalytics.context.initializer.class%
+		arguments:
+			- %behat.googleanalytics.parameters%
+		tags:
+			- { name: behat.context.initializer }
