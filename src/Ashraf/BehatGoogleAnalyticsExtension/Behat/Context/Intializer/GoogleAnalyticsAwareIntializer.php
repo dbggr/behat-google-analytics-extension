@@ -5,7 +5,7 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Context\Initializer\ContextInitializer;
 use Ashraf\BehatGoogleAnalyticsExtension\Behat\Context\GoogleAnalyticsAwareInterface;
 
-class GoogleAnalyticsAwareInitializer implements InitializerInterface {
+class GoogleAnalyticsAwareInitializer implements ContextInitializer {
 	/**
 	 * @var array
 	 */
