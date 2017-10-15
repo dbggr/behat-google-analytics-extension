@@ -1,5 +1,5 @@
 {
-    "name": "ashraf/behat-google-analytics-extension",
+    "name": "dbggr/behat-google-analytics-extension",
     "require": {
         "google/apiclient": "~2.2",
         "behat/behat": "~3.4",
