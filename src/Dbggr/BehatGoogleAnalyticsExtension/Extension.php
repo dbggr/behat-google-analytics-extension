@@ -18,7 +18,7 @@ class Extension implements BaseExtension
      */
     public function load(ContainerBuilder $container, array $config)
     {
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/services'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/Services'));
         $loader->load('core.xml');
         $container->setParameter('behat.googleanalytics.parameters', $config);
     }
